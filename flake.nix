@@ -12,15 +12,8 @@
                 opensta_sha256 = "sha256-gWAN+d6ioxQtxtgeq3vR+Zgq3nYRyn/u104L/xqumuY=";
 
                 env_exports = ''
-
                     export FIRTOOL_REV=${circt_rev}
                     export FIRTOOL_VER=1.44.0
-
-                    export PROJECT_ROOT="$(realpath .)"
-                    export BUILD_ROOT_RELATIVE="out"
-                    
-                    # Can modify this in other projects
-                    export TOP=GPIO
                 '';
             in 
         {
@@ -94,10 +87,14 @@
                     python3
                 ];
                 shellHook = env_exports + ''
-                    export BUILD_ROOT=$PROJECT_ROOT/$BUILD_ROOT_RELATIVE
-
                     export CXX=/usr/bin/c++
                     export CC=/usr/bin/cc
+
+                    cd ..
+                    if [ -e config.sh ]; then
+                        source config.sh
+                    fi
+
                 '';
             };
 
@@ -171,9 +168,12 @@
                     python3
                 ];
                 shellHook = env_exports + ''
-                    export BUILD_ROOT=$PROJECT_ROOT/$BUILD_ROOT_RELATIVE
-
                     export CHISEL_FIRTOOL_PATH="${pkgs.circt}/bin"
+
+                    cd ..
+                    if [ -e config.sh ]; then
+                        source config.sh
+                    fi
                 '';
             };
         };
