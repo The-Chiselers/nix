@@ -12,7 +12,6 @@
                 opensta_sha256 = "sha256-gWAN+d6ioxQtxtgeq3vR+Zgq3nYRyn/u104L/xqumuY=";
 
                 env_exports = ''
-                    export BROWSER=firefox
 
                     export FIRTOOL_REV=${circt_rev}
                     export FIRTOOL_VER=1.44.0
@@ -168,7 +167,6 @@
                     texliveFull
 
                     # Other
-                    firefox
                     gcc
                     python3
                 ];
