@@ -89,8 +89,6 @@
                 shellHook = env_exports + ''
                     export CXX=/usr/bin/c++
                     export CC=/usr/bin/cc
-
-                    cd ..
                     if [ -e config.sh ]; then
                         source config.sh
                     fi
@@ -170,7 +168,6 @@
                 shellHook = env_exports + ''
                     export CHISEL_FIRTOOL_PATH="${pkgs.circt}/bin"
 
-                    cd ..
                     if [ -e config.sh ]; then
                         source config.sh
                     fi
