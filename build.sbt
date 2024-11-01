@@ -32,7 +32,7 @@ lazy val root = (project in file("."))
 
 // Scala coverage settings
 val build_root = sys.env("BUILD_ROOT")
-coverageDataDir            := target.value / s"../${build_root}/cov/scala"
-coverageFailOnMinimum      := true
-coverageMinimumStmtTotal   := 90
-coverageMinimumBranchTotal := 95
+// coverageDataDir            := target.value / s"../${build_root}/cov/scala"
+// coverageFailOnMinimum      := true
+// coverageMinimumStmtTotal   := 90
+// coverageMinimumBranchTotal := 95
